@@ -1,0 +1,213 @@
+$primary-color: #e94560;
+$secondary-color: #16213e;
+$third-color: #0f3460;
+$forth-color: #533483;
+$fifth-color: #00478f;
+$white: #eee;
+$black: #000;
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&display=swap");
+$font-sweety: "Pacifico", cursive;
+$font-standart: "Poppins", sans-serif;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #00478f, #31618d, rgb(2, 0, 0));
+  background: url(../img/bg.jpg);
+  font-family: $font-standart;
+  font-style: italic;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  & * {
+    z-index: 6;
+  }
+  .container {
+    background-color: #eee;
+    width: 550px;
+    padding: 0;
+    border-radius: 12px;
+
+    .card {
+      box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+      text-align: center;
+
+      #music-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 1s ease;
+
+        .title {
+          padding: 10px 0;
+          margin: 0;
+          font-family: $font-sweety;
+          font-weight: 500;
+          font-style: italic;
+          font-size: 18px;
+        }
+
+        .singer {
+          font-size: 18px;
+          font-weight: 500;
+          margin: 10px 0px;
+        }
+      }
+
+      img {
+        max-height: 308px;
+      }
+      .card-body {
+        text-align: center;
+
+        .times {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            background-image: linear-gradient(
+              to right,
+              #00478f,
+              #31618d,
+              #021527
+            );
+
+            color: $white;
+          }
+        }
+        #controls {
+          .btn {
+            padding: 1rem;
+            color: #2980b9;
+            transition: all 0.3s ease;
+            i {
+              font-size: 22px;
+              color: $third-color;
+            }
+            #play-icon {
+              transition: all 0.2s ease;
+              font-size: 35px;
+
+              &:hover {
+                color: $fifth-color;
+                scale: (1.2);
+              }
+            }
+            #replay-icon {
+              &:hover {
+                animation: turn 0.2s forwards ease;
+                color: $primary-color;
+              }
+            }
+            #next-icon,
+            #prev-icon {
+              &:hover {
+                color: $fifth-color;
+                scale: (1.2);
+              }
+            }
+          }
+        }
+      }
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        #toggle-btn {
+          background-color: $secondary-color;
+          color: $white;
+          &:hover {
+            background-color: $fifth-color !important;
+          }
+        }
+        .volume-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: $secondary-color;
+          color: $white;
+          padding: 5px;
+          border-radius: 7px;
+          i {
+            margin-right: 7px;
+            background-color: $secondary-color;
+            color: $white;
+            padding: 7px;
+            border-radius: 10px;
+            cursor: pointer;
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+        #toggle-btn {
+          &:hover {
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+#music-list {
+  ul {
+    li {
+      .badge {
+        border-bottom: 2px outset $white;
+        color: $white;
+        background-image: linear-gradient(
+          to right,
+          #00478f,
+          #1e3a55,
+          rgb(2, 0, 0)
+        );
+      }
+    }
+  }
+}
+li.playing {
+  transition: all 0.5s ease;
+  background-image: linear-gradient(to right, #00478f, #31618d, #31618d);
+
+  color: $white !important;
+}
+.border-bottoms {
+  width: 300px;
+  height: 3px;
+
+  background-image: linear-gradient(to right, #00478f, #31618d, rgb(2, 0, 0));
+  animation: slide 1s infinite ease;
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-image: linear-gradient(to right, #00478f, #31618d, rgb(2, 0, 0));
+  }
+  25% {
+    background-image: linear-gradient(to right, #052442, #1b3b58, #0a2946);
+  }
+  50% {
+    background-image: linear-gradient(to right, #02080f, #194e80, #17446e);
+  }
+  75% {
+    background-image: linear-gradient(to right, #00478f, #02080f, #163a5c);
+  }
+  100% {
+    background-image: linear-gradient(to right, #00478f, #31618d, #02080f);
+  }
+}
